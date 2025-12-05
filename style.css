@@ -71,6 +71,13 @@ header .subtitle {
     margin-top: 30px;
     margin-bottom: 15px;
 }
+.section h4 {
+    color: #2a5298;
+    font-size: 1.3em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
 .info-box {
     background: #f8f9fa;
     border-left: 5px solid #667eea;
