@@ -1,0 +1,732 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>채용공고</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2b95f696-3464-8004-8e5c-e9bf16515da5" class="page sans"><header><h1 class="page-title" dir="auto">채용공고</h1>
+<img src="ecarus01.png" alt="채용공고 이미지" style="display: block; max-width: 100%; height: auto; margin: 20px 0;"><p class="page-description" dir="auto"></p></header><div class="page-body"><div style="display:contents" dir="auto"><h1 id="2bc5f696-3464-8084-9d3a-fc30df36fb73" class="">다산DMC 오토사업부</h1></div><div style="display:contents" dir="auto"><p id="2bc5f696-3464-80c6-8c03-e782a60ffebc" class="">다산디엠씨는 글로벌 자동차 OEM의 Tier1 업체로서 다양한 자동차 부품을 생산, 공급하고 있습니다.</p></div><div style="display:contents" dir="auto"><p id="2bc5f696-3464-80b7-8f4f-ebc507b1dfd9" class="">오토사업부는 미래차에 필요한 차량용 솔루션을 개발하고 있습니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80f8-b7b2-dfdb27d8768f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8002-a0c8-cd4b9bad136c" class="">요즘 자동차는 서버 기능이 포함된 온라인 기기로 출시가 됩니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8016-851f-fc1ef9ddf406" class="">엔진체크등에 불이 들어오면, 플랫폼이 고장정보를 이미 알고 대처해줍니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8017-bed6-fa2a7870014b" class="">사고가 나면 위치, 운전자 상태 등을 인지하여 응급센터에 알려줍니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80f1-8956-cb6c6eaf90fe" class="">차키 없이 앱으로 문을 열고 시동까지 걸 수 있습니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8063-8a6b-deb7663b912b" class="">가족들끼리 디지털키를 공유하고, 만료기한을 정할 수 있습니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8021-b799-eac1b1030cef" class="">이렇게 상상하기만 했던 기능들이 하나둘씩 구현되고 있죠.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80d5-892e-d594349534da" class="">이제 자동차 기업들은 더 이상 네트워크가 없는 제품을 만들지 않습니다.</p></div><div style="display:contents" dir="auto"><p id="2bc5f696-3464-8048-957a-c9f3d91847e9" class="">최근 커넥티드카 시장의 진화에 발맞추어 함께 일할 동료를 다음과 같이 모집하고자 합니다.</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8021-809e-ca79a7c8f6bd" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2c05f696-3464-8072-abe9-d0045432b638" class="">접수처</h2></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8012-a01c-cc496670fc50" class=""><mark class="highlight-red">이력서는 자유포맷으로 작성, 메일로 이력서 송부 (pdf, word, excel 등 파일 첨부 형태로)</mark></p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80be-9555-e90b917d8345" class="">오토사업부 기술연구소 : <a href="mailto:develoer@dasandmc.com">developer@dasandmc.com</a> </p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8044-aa86-e9ce6cea2a73" class=""><mark class="highlight-red">접수 후 일주일 이내 응답을 드립니다.</mark></p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80a9-909f-c21d661c2b70" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2c05f696-3464-8010-b677-d76259e1d134" class="">채용절차 </h2></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80aa-92af-c05055822c3f" class="">서류면접 - 실무면접(1차) - 임원면접(2차) - 연봉협상 - 입사</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8025-b69c-c6e8c8cae92d" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2c05f696-3464-8034-bcef-f4007ba07569" class="">기타</h2></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80c2-a5fa-fee976405f7d" class=""><mark class="highlight-red">수시채용으로 채용시점까지 공고는 오픈됩니다.</mark></p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8053-a6ac-c1952fedb172" class="">
+</p></div><div style="display:contents" dir="auto"><h2 id="2c05f696-3464-80b2-8fa7-f16b6750259b" class="">근무장소</h2></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-802a-a6ff-e9607fdf2755" class=""><a href="https://pcmap.place.naver.com/place/38715141/home?from=map&amp;fromPanelNum=1&amp;additionalHeight=76&amp;timestamp=202512051608&amp;locale=ko&amp;svcName=map_pcv5#">서울 성동구 왕십리로 58 포휴</a>  (서울숲역 수인분당선)</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8035-8571-f03a32d3cd7f" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2c05f696-3464-80d7-8be1-e87c0245e2e8"/></div><div style="display:contents" dir="auto"><h1 id="2bf5f696-3464-80c9-b170-db0203530f37" class=""><strong>모집분야</strong></h1></div><div style="display:contents" dir="auto"><h2 id="2bc5f696-3464-8015-a140-eb49b2aedd80" class=""><mark class="highlight-blue">1. 커넥티드카 개발자</mark></h2></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80d2-9cd2-ef6a32b72724" class="">기술연구소에서는 자동차가 온라인과 결합하기 위한 텔레매틱스 플랫폼의 미들웨어 기능을 개발합니다</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80f6-8bd8-e7a895775da9" class="">이 업무를 함께 할 개발자를 구합니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80a6-b77c-dc5561e1eb2f" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80a7-a01a-fdacea9b68a5" class="">최소 3년차 이상에 10년차까지 텔레매틱스 업무 경험자를 찾고 있습니다.</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80ee-a458-fc44a00245ff" class="">아래 기술은 현재 기술연구소에서 사용하는 기술 및 기능들입니다.</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80b7-b503-fde010c416ff" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2c05f696-3464-80e3-9110-f6401901450d" class="">(1) 미들웨어 부문</h3></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80e6-8dfc-e554c46f9516" class="">일부 경험이 있거나, 관련 기술에 대한 관심이 높아 해당 업무를 해보고 싶은 분을 찾습니다.</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8017-8fe3-e23d7934c4c5" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80d0-b3ef-ffec36d52d1b" class="">업무 분야</p></div><div style="display:contents" dir="auto"><ol type="1" id="2b95f696-3464-80e3-9a3a-f53bf518c4e8" class="numbered-list" start="1"><li>MQTT 기반의 IoT 및 차량 통신 기술 (Mediation 서버) 개발 및 운영</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2b95f696-3464-804f-9ed1-e25484bd2160" class="numbered-list" start="2"><li>IoT 및 차량 Protocol 생성 및 테스트기능 구현 및 운영</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-80ed-b09b-de0312e5a113" class="numbered-list" start="3"><li>IoT 및 차량 Protocol 시뮬레이터 개발 및 운영</li></ol></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80dd-8f35-d5c16c1dc63b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-803c-9bd1-f21769db03d1" class="">요구 기술</p></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-80c0-bea2-f202ebd77cd5" class="numbered-list" start="1"><li>Java Springboot, postgresql, mysql 등 사용경험</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-80cd-914c-f77f5d515e5a" class="numbered-list" start="2"><li>netty, node.js 기반의 통신 미들웨어 개발 및 운영 경험 </li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-802e-9212-effd19f1f4c1" class="numbered-list" start="3"><li>mqtt based pub/sub framework 개발경험자</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-80a3-805b-daf97226bce3" class="numbered-list" start="4"><li>Prometheus, Grafana 등의 Open Source 사용경험자</li></ol></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-80a2-9121-f4c853cc4420" class="">
+</p></div><div style="display:contents" dir="auto"><h3 id="2c05f696-3464-800f-a422-d6875bd93de3" class="">(2) 서비스 부문</h3></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-807e-9683-ec0f1a71f303" class="">업무 분야</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-80a2-aac5-c4d51d0722eb" class="numbered-list" start="1"><li>자동차 및 운전자 대응을 위한 고객센터 서비스 개발 및 운영</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-8022-91e4-efe6c6b960e2" class="numbered-list" start="2"><li>커넥티드카 제어 및 상태조회를 위한 웹앱 서비스 개발, 운영</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-8002-96d8-d472cb7b7f58" class="numbered-list" start="3"><li>자동차 수집 데이터를 정제, 가공, 제공하기 위한 API 서비스 개발, 운영</li></ol></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-8006-975c-e43dcbac110b" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-804b-a3af-db773447c4d5" class="">사용기술</p></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-80f5-a217-d900a3ad0e42" class="numbered-list" start="1"><li>Spring Boot, node.js, python 등 폭넓게 사용이 가능한 자</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2c05f696-3464-8023-bdbb-e9a150662543" class="numbered-list" start="2"><li>Vue.js, React 개발 및 운영 경험자.</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-809d-a136-c84979f96eb5" class="numbered-list" start="3"><li>데이터 수집, 정제를 위한 관련 기술 경험 보유자(예 : Apache Flink 등)</li></ol></div><div style="display:contents" dir="auto"><p id="2c05f696-3464-806c-8ef0-c7192c3b3a89" class="">
+</p></div><div style="display:contents" dir="auto"><hr id="2bf5f696-3464-80b4-afad-e21e0f1ee388"/></div><div style="display:contents" dir="auto"><h2 id="2bf5f696-3464-8087-8b70-ec2b433d6075" class=""><mark class="highlight-blue">2. 커넥티드카 서비스 운영 담당</mark></h2></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80bc-a44b-c3a19bf79435" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8032-b13b-cc3d96706302" class="">우리는 이러한 혁신적인 커넥티드카 서비스가 멈추지 않고 안정적으로</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-802d-9c0a-fa065548a606" class="">사용자에게 제공될 수 있도록 관리하고 운영할 전문가를 모십니다.</p></div><div style="display:contents" dir="auto"><ul id="2bf5f696-3464-80cf-91f9-e1f2083fc07a" class="bulleted-list"><li style="list-style-type:disc">서비스운영팀 운영기획 담당</li></ul></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80e6-8d0e-c72e92a73cc6" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80db-afe6-e57434c43f7e" class="">주요업무</p></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-8051-83b8-f1007a0f4e3b" class="numbered-list" start="1"><li>커넥티드카 서비스 전반(Operation)의 안정적 운영 및 품질 관리</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-80fe-9469-fabd09402ecf" class="numbered-list" start="2"><li>고객문의 및 VoC 대응 프로세스 운영 및 개선</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="41d059ae-4372-4ca5-8507-93096012b1b0" class="numbered-list" start="3"><li>서비스 장애 모니터링 및 이슈 대응, 리스크 관리</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="f078688b-d943-4049-9518-28f6d2fabbaf" class="numbered-list" start="4"><li>운영 지표 (KPI, SLA 등) 수립 및 정기 리포트 발행</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="6b2b5335-7e23-488c-bfdd-2c9a1344a45d" class="numbered-list" start="5"><li>서비스 품질 향상을 위한 데이터 분석 및 인사이트 도출</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="9dc883c1-10c3-4bc0-a64f-8878a7706d42" class="numbered-list" start="6"><li>유관 부서 및 관계사 등과의 운영 협업 및 커뮤니케이션</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="1d5602b8-0764-44ef-9f31-ced13da4d180" class="numbered-list" start="7"><li>운영 정책, 매뉴얼, CS가이드 라인 수립</li></ol></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-809b-8152-fb4bcd7def44" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-8099-ad53-ffd7f3c551f0" class="">업무 및 기술 경험</p></div><div style="display:contents" dir="auto"><ol type="1" id="b1e7e509-f9d8-4ce1-95c2-ccaaef5a7190" class="numbered-list" start="1"><li>모빌리티/커넥티드카/통신 관련 서비스 운영기획 경력 3년 이상</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="25181ffb-12b7-49e0-9c81-9110da702c92" class="numbered-list" start="2"><li>VoC 관리, 운영 정책 수립 및 리스크 관리 경험</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-80c5-91d7-d864a28d7fcd" class="numbered-list" start="3"><li>업무 기획 및 설계를 위한 관련 툴 및 문서 작성 역량 필수</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="39be9533-2843-49b4-857f-c7ebaf741341" class="numbered-list" start="4"><li>데이터분석을 활용한 리포트 작성 가능자 (데이터 시각화, 보고서 작성)</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-80f6-bd1d-ca57b13a8ac8" class="numbered-list" start="5"><li>프로젝트 협업 및 커뮤니케이션 능력 우수자</li></ol></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80f8-9210-ca37674c8ab4" class="">
+</p></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-802b-ae3a-da3b2f593955" class="">우대사항</p></div><div style="display:contents" dir="auto"><ol type="1" id="30c0c949-04d5-4cb7-a60f-bacee682e26c" class="numbered-list" start="1"><li>OKR 기반 프로젝트 관리 및 실행 경험자</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="3b43b229-91aa-4b43-8172-e82362791c05" class="numbered-list" start="2"><li>일본어 커뮤니케이션 가능자</li></ol></div><div style="display:contents" dir="auto"><ol type="1" id="2bf5f696-3464-8049-90f1-c319e2857c6a" class="numbered-list" start="3"><li>JSM (Jira Servie Management), Confluence 등 협업 / 운영 툴 활용 경험</li></ol></div><div style="display:contents" dir="auto"><p id="2bf5f696-3464-80c0-a356-f05849febfbb" class="">
+</p></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
